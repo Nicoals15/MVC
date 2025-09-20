@@ -5,7 +5,7 @@ class UsuarioController{
 
     public function mostrarTodos(){
 
-        require_once 'models/modelsUsuario.php';
+        require_once 'models/usuarioModels.php';
 
         $usuario = new Usuario();
 
@@ -16,7 +16,21 @@ class UsuarioController{
     }
 
     public function crear(){
+        require_once 'models/usuarioModels.php';
+
+        $practicanteDeBodega = new Usuario();
+        
+        $practicanteDeBodega->setId_usuario('null');
+        $practicanteDeBodega->setNombre('Juan sebastian');
+        $practicanteDeBodega->setApellido('Guerrero');
+        $practicanteDeBodega->setCorreo('niok@gmail.com');
+        $practicanteDeBodega->setPassword('123456');
+
+        
+        $guardar = $practicanteDeBodega->crear();
+
         require_once 'views/usuarios/crear.php';
+
         
     }
 }
